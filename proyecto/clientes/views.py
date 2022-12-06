@@ -49,7 +49,7 @@ def clienteeliminar(request, id_cliente): #BOTON ELIMINAR EN LISTADO
 
 class AltaClienteForm(View): #FORMULARIO DE ALTA
     form_class = AltaClienteForm
-    template_name = 'prueba_clientes/altaclienteform.html'
+    template_name = 'clientes/altaclienteform.html'
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
@@ -65,7 +65,7 @@ class AltaClienteForm(View): #FORMULARIO DE ALTA
 
 class BajaClienteForm(View): #FORMULARIO DE BAJA
     form_class = BajaClienteForm
-    template_name = 'prueba_clientes/bajaclienteform.html'
+    template_name = 'clientes/bajaclienteform.html'
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
@@ -81,7 +81,7 @@ class BajaClienteForm(View): #FORMULARIO DE BAJA
             try:
                 cliente_a_borrar= Cliente.objects.get(nombre=nombre,apellido=apellido,email=email)
             except Cliente.DoesNotExist:
-                return render(request, "prueba_clientes/404.html")    
+                return render(request, "clientes/404.html")    
            
             cliente_a_borrar.delete()
         else: 

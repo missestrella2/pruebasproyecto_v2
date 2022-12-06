@@ -15,11 +15,11 @@ from django.views.generic import ListView
 
 def paginaenblanco(request):
     context = {"hoy": datetime.now}
-    return render(request, 'prueba_ventas/paginaenblanco.html', {"context": context})
+    return render(request, 'ventas/paginaenblanco.html', {"context": context})
 
 # def estadisticas(request):
 #     context = {"hoy": datetime.now}
-#     return render(request, 'prueba_ventas/estadisticas.html', {"context": context})
+#     return render(request, 'ventas/estadisticas.html', {"context": context})
 
 def buscarventas(request): #filtro por nombre
     ventas = Venta.objects.all()
@@ -28,18 +28,18 @@ def buscarventas(request): #filtro por nombre
      'form': BuscarVentaForm(),
      'ventas':ventas,
     }
-    return render(request,'prueba_ventas/buscarventas.html',context)
+    return render(request,'ventas/buscarventas.html',context)
 
 class ListaDeVentas(ListView):
     model = Venta 
     context_object_name = 'ventas'
-    template_name = 'prueba_ventas/listadeventas.html'
+    template_name = 'ventas/listadeventas.html'
     ordering =['id']
 
 
 class altaventaform(View): #FORMULARIO DE ALTA
     form_class = AltaVentaForm
-    template_name = 'prueba_ventas/altaventaform.html'
+    template_name = 'ventas/altaventaform.html'
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()

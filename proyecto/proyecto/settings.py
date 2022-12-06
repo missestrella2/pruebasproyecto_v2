@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'nuevadb',
         'USER': 'postgres',
-        'PASSWORD': 'Mi$$9191',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '5432'  
     }

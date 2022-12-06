@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ValidationError
-from .models import PagoForma
+from ventas.models import PagoForma
 #from .models import Cargo
 
 class PagoFormasForm(forms.ModelForm):

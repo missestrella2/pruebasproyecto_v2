@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.template import loader
 from clientes.forms import ClientesForm, AltaClienteForm, BajaClienteForm
 from django.contrib import messages
-from clientes.models import Cliente
+from ventas.models import Cliente
 from django.views import View
 from django.views.generic import ListView
 

@@ -10,8 +10,8 @@
                     <th>Id</th>
                     <th>Fecha de Venta</th>
                     <th>Monto</th>
-                    <th>Nombre</th> 
-                    <th>Forma de Pago</th> 
+                    <th>Cliente ID</th> 
+                    <th>Forma de Pago ID</th> 
                 </tr>
             </thead>
             <tbody>
@@ -23,20 +23,9 @@
                         <td>{{venta.fecha_de_venta}}</td>
                         <td>{{venta.monto}}</td> 
                         <td>{{venta.clientes_id}}</td>          
-                        <td></td>
+                        <td>{{venta.pagoformas_id}}</td>
                               
             {% endfor %}             
-
-            {% comment %} {% for venta in listadeventas %} 
-                    <tr>
-            
-                        <td>{{venta.id}}</td>
-                        <td>{{venta.fecha_de_venta}}</td>
-                        <td>{{venta.monto}}</td> 
-                        <td>{{venta.clientes_id}}</td>
-                        <td>{{}}</td>
-                              
-            {% endfor %}              {% endcomment %}
                 
                     </tr>
              

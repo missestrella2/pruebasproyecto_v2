@@ -119,9 +119,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/' #SEGUN CLASE 14
+
+STATICFILES_DIRS = [ #SEGUN CLASE 14
+    BASE_DIR / "static",
+]
+
+STATIC_ROOT = BASE_DIR / "static_root/" #SEGUN CLASE 14
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# REGISTRATION
+LOGIN_REDIRECT_URL = "paginaenblanco"
+LOGOUT_REDIRECT_URL = "logout"

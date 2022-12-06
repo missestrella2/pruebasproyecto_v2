@@ -11,15 +11,12 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.views import View
 from django.views.generic import ListView
 
-
-
 def index(request):
     return redirect('login')
 
 def logout_view(request):
      logout(request)
      return redirect('logout')
-
 
 def paginaenblanco(request):
     context = {"hoy": datetime.now}

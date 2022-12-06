@@ -79,7 +79,6 @@ class bajapagoformaform(View): #FORMULARIO DE BAJA
                 PagoForma_a_borrar= PagoForma.objects.get(nombre=nombre)
             except PagoForma.DoesNotExist:
                 return render(request, "PagoFormas/404.html")    
-            
             PagoForma_a_borrar.delete()
 
         else:

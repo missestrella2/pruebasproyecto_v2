@@ -11,7 +11,7 @@ class PagoFormasForm(forms.ModelForm):
 class AltaPagoFormaForm(forms.ModelForm):
     class Meta:
         model = PagoForma
-        fields = '__all__'
+        fields = ('nombre',)
 
 class BajaPagoFormaForm(forms.ModelForm):
     class Meta:

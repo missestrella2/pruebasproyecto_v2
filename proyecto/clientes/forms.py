@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ValidationError
-from ventas.models import Cliente
+from .models import Cliente
 
 #from .models import Cargo
 

@@ -3,6 +3,7 @@ from django.forms import ValidationError
 from .models import Venta
 #from .models import Cargo
 
+
 class VentasForm(forms.ModelForm):
     class Meta:
         model = Venta

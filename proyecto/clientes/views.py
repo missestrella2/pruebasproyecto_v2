@@ -1,14 +1,11 @@
 from datetime import datetime
-from multiprocessing import context
-from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.template import loader
-from clientes.forms import ClientesForm, AltaClienteForm, BajaClienteForm
-from django.contrib import messages
-from ventas.models import Cliente
 from django.views import View
 from django.views.generic import ListView
+
+from clientes.forms import ClientesForm, AltaClienteForm, BajaClienteForm
+from .models import Cliente
+
 
 
 def paginaenblanco(request):

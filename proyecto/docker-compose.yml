@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  postgresql:
+    image: mdillon/postgis
+    environment:
+      POSTGRES_DB: pig_db
+      POSTGRES_USER: pig_user
+      POSTGRES_PASSWORD: pig_password
+    ports:
+      - '5454:5432'
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:

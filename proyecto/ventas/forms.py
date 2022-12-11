@@ -8,6 +8,9 @@ class VentasForm(forms.ModelForm):
     class Meta:
         model = Venta
         fields = '__all__'
+        widgets = {
+        'fecha_de_venta': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Elegir fecha', 'type':'date'}),
+        }
 
 class AltaVentaForm(forms.ModelForm):
     class Meta:

@@ -1,12 +1,14 @@
-from django.urls import path, re_path
+from django.urls import path
+from django.contrib.auth.decorators import login_required
+
 from . import views
 
 urlpatterns=[
 
-    path('pagoformas/listadepagoformas/',views.ListaDePagoFormas.as_view(),name='listadepagoformas'),
-    path('pagoformas/altapagoformaform/',views.altapagoformaform.as_view(),name='altapagoformaform'),
-    path('pagoformas/bajapagoformaform/',views.bajapagoformaform.as_view(),name="bajapagoformaform"),
-    path('pagoformas/pagoformaeditar/<int:id_pagoforma>',views.pagoformaeditar,name='pagoformaeditar'),
-    path('pagoformas/pagoformaeliminar/<int:id_pagoforma>',views.pagoformaeliminar,name='pagoformaeliminar'),
-    path('pagoformas/paginaenblanco/',views.paginaenblanco,name='paginaenblanco'),
+    path('pagoformas/listadepagoformas/', login_required(views.ListaDePagoFormas.as_view()), name='listadepagoformas'),
+    path('pagoformas/altapagoformaform/', login_required(views.altapagoformaform.as_view()), name='altapagoformaform'),
+    path('pagoformas/bajapagoformaform/', login_required(views.bajapagoformaform.as_view()), name="bajapagoformaform"),
+    path('pagoformas/pagoformaeditar/<int:id_pagoforma>', login_required(views.pagoformaeditar), name='pagoformaeditar'),
+    path('pagoformas/pagoformaeliminar/<int:id_pagoforma>', login_required(views.pagoformaeliminar), name='pagoformaeliminar'),
+    path('pagoformas/paginaenblanco/', login_required(views.paginaenblanco), name='paginaenblanco'),
 ]

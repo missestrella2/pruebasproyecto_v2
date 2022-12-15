@@ -31,4 +31,6 @@ class Venta(models.Model):
     departamentos = models.ManyToManyField(Departamento, verbose_name='Departamento')
     fecha_de_venta = models.DateField(max_length=25,verbose_name='Fecha de Venta')
     monto = models.IntegerField(default=0,verbose_name='Monto')
-    estado=models.BooleanField(default=False)
+
+    estado_terminado=models.BooleanField(default=False) ###
+    estado_pendiente=models.BooleanField(default=True) ###

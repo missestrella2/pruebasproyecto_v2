@@ -13,7 +13,7 @@ class AltaVentaForm(forms.ModelForm):
      class Meta:
          model = Venta
          fields = '__all__'
-         exclude = ('estado',)
+         exclude = ('estado_pendiente','estado_terminado') ###
          #departamentos = forms.MultipleChoiceField()  
          departamentos = forms.CheckboxSelectMultiple()   
          widgets = {

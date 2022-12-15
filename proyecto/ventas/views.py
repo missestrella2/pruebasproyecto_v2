@@ -8,6 +8,7 @@ from django.views.generic import ListView
 from ventas.forms import VentasForm, AltaVentaForm,BuscarVentaForm
 from ventas.models import Venta
 
+from django.shortcuts import get_object_or_404 #### https://stackoverflow.com/questions/70856274/django-set-boolean-to-false-when-clicking-a-button
 #Departamento
 
 
@@ -50,3 +51,17 @@ class altaventaform(View): #FORMULARIO DE ALTA
             return redirect('listadeventas')
 
         return render(request, self.template_name, {'formulario': form})
+
+
+
+def estadocambiar(request, id): #BOTON CAMBIAR DE ESTADO
+     try:
+         venta2 = Venta.objects.get(id=id)
+     except Venta.DoesNotExist:
+         return render(request, 'ventas/404.html')
+     venta2.estado_pendiente=False
+     venta2.estado_terminado=True
+
+     venta2.save()
+     return redirect('buscarventas')
+

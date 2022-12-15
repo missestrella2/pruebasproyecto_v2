@@ -13,5 +13,5 @@ urlpatterns=[
     path('ventas/paginaenblanco/', login_required(views.paginaenblanco), name='paginaenblanco'),
 
     path('ventas/buscarventas/', login_required(views.buscarventas), name='buscarventas'),
-    
+    path('ventas/estadocambiar/<int:id>', login_required(views.estadocambiar), name='estadocambiar'),
 ]

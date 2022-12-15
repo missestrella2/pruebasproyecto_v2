@@ -53,13 +53,27 @@
                         <td>{{venta.clientes.email}}</td>  
                         <td>
                         
-                        {% if venta.estado == True %}
-                            <p class="text-success"> Ya se envio promo</p>
-                        {% endif %}
-                        {% if venta.estado == False %}    
-                            <p class="text-danger"> Falta Enviar Promo </p>
-                        {% endif %}
-                        
+                        {% comment %} {% if venta.estado == True %}
+                            <a class="btn btn-success" href="{% url 'buscarventas'%}">Ya se envio</a>
+                            {% comment %} <input class="btn btn-primary btn-success" type="submit" value="Enviado"> {% endcomment %}
+                            {% comment %} <p class="text-success"> Ya se envio promo</p> {% endcomment %}
+                        {% comment %} {% endif %} {% endcomment %}
+                        {% comment %} {% if venta.estado == False %}  {% endcomment %}
+                            {% comment %} <input class="btn btn-primary btn-danger" type="submit" value="Falta Enviar">    {% endcomment %}
+                            {% comment %} <a class="btn btn-danger" href="{% url 'buscarventas' %}">Falta Enviar</a>
+                             {% endcomment %}
+                        {% comment %} {% endif %} {% endcomment %} 
+                    {% if venta.estado_pendiente == True %}
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <a class="btn btn-primary btn-danger" href="{% url 'estadocambiar' venta.id %}">Falta Enviar mail</a>
+                                </form>
+                    {% else %} 
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <a class="btn btn-primary btn-success" href="{% url 'estadocambiar' venta.id %}">Ya fue enviado el mail</a>
+                                </form>                                
+                    {% endif %}    
                         
                         </td> 
                               

@@ -8,6 +8,8 @@ from django.views.generic import ListView
 from ventas.forms import VentasForm, AltaVentaForm,BuscarVentaForm
 from ventas.models import Venta
 
+#Departamento
+
 
 
 def paginaenblanco(request):
@@ -32,6 +34,12 @@ class ListaDeVentas(ListView):
     context_object_name = 'ventas'
     template_name = 'ventas/listadeventas.html'
     ordering =['id']
+
+# class ListaDeDptos(ListView):
+#     model = Departamento
+#     context_object_name = 'departamentos'
+#     template_name = 'ventas/listadeventas.html'
+#     ordering =['id']
 
 
 class altaventaform(View): #FORMULARIO DE ALTA

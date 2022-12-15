@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'formasdepago',
     'login',
     'clientes',
-    'django_extensions'
+    'django_extensions',
+    'django_utils',
+    #'django_choices' no hace falta ponerlo aca segun documentacion
 ]
 
 MIDDLEWARE = [

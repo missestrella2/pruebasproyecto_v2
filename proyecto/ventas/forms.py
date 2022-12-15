@@ -10,14 +10,14 @@ class VentasForm(forms.ModelForm):
         fields = '__all__'
         
 class AltaVentaForm(forms.ModelForm):
-    class Meta:
-        model = Venta
-        fields = '__all__'
-        #departamentos = forms.MultipleChoiceField()  
-        departamentos = forms.CheckboxSelectMultiple()   
-        widgets = {
-            'fecha_de_venta':forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Elegir fecha', 'type':'date'}),
-                   }   
+     class Meta:
+         model = Venta
+         fields = '__all__'
+         #departamentos = forms.MultipleChoiceField()  
+         departamentos = forms.CheckboxSelectMultiple()   
+         widgets = {
+             'fecha_de_venta':forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Elegir fecha', 'type':'date'}),
+                    }   
 
 #class AltaVentaForm(forms.ModelForm): #no funcionó
     # class Meta:

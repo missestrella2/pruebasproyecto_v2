@@ -35,13 +35,6 @@ class ListaDeVentas(ListView):
     template_name = 'ventas/listadeventas.html'
     ordering =['id']
 
-# class ListaDeDptos(ListView):
-#     model = Departamento
-#     context_object_name = 'departamentos'
-#     template_name = 'ventas/listadeventas.html'
-#     ordering =['id']
-
-
 class altaventaform(View): #FORMULARIO DE ALTA
     form_class = AltaVentaForm
     template_name = 'ventas/altaventaform.html'

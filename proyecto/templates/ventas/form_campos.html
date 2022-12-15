@@ -1,4 +1,5 @@
-{% comment %} 
+{% comment %} #### AL USAR ESTE FORMATO PERSONALIZADO NO ME APARECEN LOS SELECT AUTOMATICOS
+
 {% for campo in formulario %}
             <div class="form-group">
              <label for="">{{campo.label}}</label>
@@ -13,5 +14,5 @@
             > 
             </div>
             <div>{{campo.errors}}</div>
-{% endfor %} {% endcomment %}
-
+{% endfor %} 
+ {% endcomment %}

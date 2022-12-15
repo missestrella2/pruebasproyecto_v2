@@ -4,7 +4,7 @@
 
 <h1 class="mt-4">Ventas</h1>
 <ol class="breadcrumb mb-4">
- <li class="breadcrumb-item active">Alta Venta</li>
+ <li class="breadcrumb-item active"></li>
 </ol>
 
 <div class="card col-3">
@@ -12,8 +12,8 @@
     <div class="card-body">
         <form action="{% url 'altaventaform' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {% comment %} {% include 'ventas/form_campos.html' %} {% endcomment %}
-            {{formulario.as_p}}
+            {% comment %} {% include 'ventas/form_campos.html' %}  {% endcomment %}
+            {{formulario.as_p}} 
             <div class="row mt-3">
     <div class="col-12">
         <input type="submit" value="Guardar" class="btn btn-success">

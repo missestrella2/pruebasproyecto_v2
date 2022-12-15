@@ -1,4 +1,4 @@
-{% extends "plantillabase2.html" %} 
+{% comment %} {% extends "plantillabase2.html" %} 
 
 {% block content %}
 
@@ -29,28 +29,17 @@
                         <td>{{venta.fecha_de_venta}}</td>
                         <td>${{venta.monto}}</td> 
                         {% comment %} <td>{{venta.clientes_id}}</td>      {% endcomment %}
-                        <td>{{venta.clientes.nombre}}</td> 
+                        {% comment %} <td>{{venta.clientes.nombre}}</td> 
                         <td>{{venta.clientes.apellido}}</td>
                         <td>{{venta.clientes.email}}</td>       
                         <td>{{venta.pagoformas.nombre}}</td>
-                              
-            {% endfor %}             
-                
+                      {% endfor %}                   
                     </tr>
-             
-               
             </tbody>
         </table>
             </tbody>
         </table>
-
-
-
-
-
 {% else %}
     <p> no se encuentra clientes con esas caracteristicas </p>
-
 {% endif %}
-
-{% endblock %}
+{% endblock %} {% endcomment %} {% endcomment %}

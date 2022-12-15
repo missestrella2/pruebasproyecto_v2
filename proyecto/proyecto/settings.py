@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'login',
     'clientes',
     'django_extensions',
-    'django_utils',
+    #'django_utils', #no me funciono para choices
     #'django_choices' no hace falta ponerlo aca segun documentacion
 ]
 

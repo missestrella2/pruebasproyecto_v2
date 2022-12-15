@@ -4,9 +4,9 @@ from formasdepago.models import PagoForma
 
 
 class Cliente(models.Model):
-    nombre = models.CharField(max_length=100, default=" ",verbose_name='Nombre')
-    apellido = models.CharField(max_length=100, default=" ", verbose_name='Apellido')
-    email = models.EmailField(max_length=150, verbose_name='Email')
+    nombre = models.CharField(max_length=20, default=" ",verbose_name='Nombre')
+    apellido = models.CharField(max_length=20, default=" ", verbose_name='Apellido')
+    email = models.EmailField(max_length=50, verbose_name='Email')
 
     def __str__(self):
         return self.nombre + " " + self.apellido

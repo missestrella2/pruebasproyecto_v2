@@ -6,10 +6,11 @@ from formasdepago.models import PagoForma
 
 class Departamento(models.Model):
     nombre=models.CharField(max_length=100, verbose_name='Nombre del Dpto',default='')
-    
+        
     def __str__(self):
         return self.nombre
-        
+    
+
     # no funcionó
     # nombre=models.CharField(max_length=50,choices=DPTOS_CHOICES,default='1'),
     
@@ -28,6 +29,8 @@ class Venta(models.Model):
     clientes = models.ForeignKey(Cliente, on_delete=models.CASCADE,verbose_name='Cliente')
     pagoformas = models.ForeignKey(PagoForma, on_delete=models.CASCADE, verbose_name='Forma de Pago')
     departamentos = models.ManyToManyField(Departamento, verbose_name='Departamento')
-    fecha_de_venta = models.DateField(verbose_name='Fecha de Venta')
+    fecha_de_venta = models.DateField(max_length=25,verbose_name='Fecha de Venta')
     monto = models.IntegerField(default=0,verbose_name='Monto')
 
+    estado_terminado=models.BooleanField(default=False) ###
+    estado_pendiente=models.BooleanField(default=True) ###

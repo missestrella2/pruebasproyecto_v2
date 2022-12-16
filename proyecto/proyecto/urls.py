@@ -25,5 +25,9 @@ urlpatterns = [
     path('', include('ventas.urls')),
     path('', include('formasdepago.urls')),
     path('', include('clientes.urls')),
+
+    path('accounts/',include('django.contrib.auth.urls')),
+
+    path('api-auth/',include('rest_framework.urls')), 
     
 ]

@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'login',
     'clientes',
     'django_extensions',
+    'rest_framework',
     #'django_utils', #no me funciono para choices
-    #'django_choices' no hace falta ponerlo aca segun documentacion
+    #'django_choices' #no me funciono para choices. no hace falta ponerlo aca segun documentacion
 ]
 
 MIDDLEWARE = [

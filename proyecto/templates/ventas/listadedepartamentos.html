@@ -1,0 +1,29 @@
+{% extends "plantillabase2.html" %} 
+
+{% block content %}
+
+    <p></p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                {% for departamento in object_list %}
+                    <tr>
+                        <td>{{departamento.id}}</td>
+                        <td>{{departamento.nombre}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{% url 'departamentoeditar' departamento.id %}">Editar</a>
+                            <a class="btn btn-danger" href="{% url 'departamentoeliminar' departamento.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+               
+            </tbody>
+        </table>
+{% endblock %}

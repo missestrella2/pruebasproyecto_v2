@@ -6,7 +6,8 @@ from django.views import View
 from django.views.generic import ListView
 
 from ventas.forms import VentasForm, AltaVentaForm,BuscarVentaForm
-from ventas.models import Venta
+from ventas.forms import DepartamentosForm, AltaDepartamentoForm,BajaDepartamentoForm
+from ventas.models import Venta,Departamento
 
 from django.shortcuts import get_object_or_404 #### https://stackoverflow.com/questions/70856274/django-set-boolean-to-false-when-clicking-a-button
 #Departamento
@@ -65,3 +66,77 @@ def estadocambiar(request, id): #BOTON CAMBIAR DE ESTADO
      venta2.save()
      return redirect('buscarventas')
 
+
+######################DEPARTAMENTOS####################################
+
+class ListaDeDepartamentos(ListView):
+    model = Departamento 
+    context_object_name = 'departamentos'
+    template_name = 'ventas/listadedepartamentos.html'
+    ordering =['id']
+
+def departamentoeditar(request, id_departamento): #BOTON EDITAR EN LISTADO
+    try:
+        departamento = Departamento.objects.get(id=id_departamento)
+    except Departamento.DoesNotExist:
+        return render(request, 'ventas/404.html')
+    
+    if request.method == "POST":
+        formulario = DepartamentosForm(request.POST, instance=departamento)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('listadedepartamentos')
+    else:
+        formulario = DepartamentosForm(instance=departamento)
+
+    return render(request, 'ventas/departamentoeditar.html', {'formulario': formulario, 'id_departamento': id_departamento})
+
+
+def departamentoeliminar(request, id_departamento): #BOTON ELIMINAR EN LISTADO 
+    try:
+        departamento = Departamento.objects.get(id=id_departamento)
+    except Departamento.DoesNotExist:
+        return render(request, 'ventas/404.html')
+    departamento.delete()
+    return redirect('listadedepartamentos')
+
+
+class AltaDepartamentoForm(View): #FORMULARIO DE ALTA
+    form_class = AltaDepartamentoForm
+    template_name = 'ventas/altadepartamentoform.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        return render(request, self.template_name, {'formulario': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listadedepartamentos')
+
+        return render(request, self.template_name, {'formulario': form})
+
+class BajaDepartamentoForm(View): #FORMULARIO DE BAJA
+    form_class = BajaDepartamentoForm
+    template_name = 'ventas/bajadepartamentoform.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        return render(request, self.template_name, {'formulario': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data['nombre']
+      
+            try:
+                departamento_a_borrar= Departamento.objects.get(nombre=nombre)
+            except Departamento.DoesNotExist:
+                return render(request, "ventas/404.html")    
+           
+            departamento_a_borrar.delete()
+        else: 
+            return redirect('listadedepartamentos')
+
+        return render(request, self.template_name, {'formulario': form})

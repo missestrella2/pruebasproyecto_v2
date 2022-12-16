@@ -1,0 +1,29 @@
+{% extends "plantillabase2.html" %} 
+
+{% block content %}
+
+    <p>Departamentos</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Departamento</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+            {% for departamento in departamentos %} 
+                    <tr>
+            
+                        <td>{{departamento.id}}</td>
+                        <td>{{departamento.nombre}}</td>
+                              
+            {% endfor %}             
+                
+                    </tr>
+             
+               
+            </tbody>
+        </table>
+{% endblock %}

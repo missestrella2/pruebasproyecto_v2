@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'clientes',
     'django_extensions',
     'rest_framework',
+    'proyecto_api',
     #'django_utils', #no me funciono para choices
     #'django_choices' #no me funciono para choices. no hace falta ponerlo aca segun documentacion
 ]

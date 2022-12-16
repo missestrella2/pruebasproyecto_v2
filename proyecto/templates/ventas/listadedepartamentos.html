@@ -2,27 +2,27 @@
 
 {% block content %}
 
-    <p>Departamentos</p>
+    <p></p>
 
         <table class="table">
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Departamento</th>
+                    <th>Nombre</th>
                 </tr>
             </thead>
             <tbody>
-            
-            {% for departamento in departamentos %} 
+               
+                {% for departamento in object_list %}
                     <tr>
-            
                         <td>{{departamento.id}}</td>
                         <td>{{departamento.nombre}}</td>
-                              
-            {% endfor %}             
-                
+                        <td>
+                            <a class="btn btn-primary" href="{% url 'departamentoeditar' departamento.id %}">Editar</a>
+                            <a class="btn btn-danger" href="{% url 'departamentoeliminar' departamento.id %}">Eliminar</a>
+                        </td>
                     </tr>
-             
+                {% endfor %}
                
             </tbody>
         </table>

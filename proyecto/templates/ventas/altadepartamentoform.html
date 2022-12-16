@@ -12,8 +12,8 @@
     <div class="card-body">
         <form action="{% url 'altadepartamentoform' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {% comment %} {% include 'ventas/form_campos.html' %}  {% endcomment %}
-            {{formulario.as_p}} 
+            {% include 'ventas/form_campos.html' %} 
+            {% comment %} {{formulario.as_p}} {% endcomment %}
             <div class="row mt-3">
     <div class="col-12">
         <input type="submit" value="Guardar" class="btn btn-success">

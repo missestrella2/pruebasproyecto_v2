@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ValidationError
-from .models import Venta
+from .models import Venta, Departamento
 #from .models import Cargo
 
 
@@ -38,3 +38,20 @@ class BuscarVentaForm(forms.ModelForm):
     class Meta:
         model = Venta
         fields = ('fecha_de_venta',)
+
+#################################################
+
+class DepartamentosForm(forms.ModelForm):
+    class Meta:
+        model = Departamento
+        fields = '__all__'
+
+class AltaDepartamentoForm(forms.ModelForm):
+    class Meta:
+        model = Departamento
+        fields = '__all__'
+
+class BajaDepartamentoForm(forms.ModelForm):
+    class Meta:
+        model = Departamento
+        fields = '__all__'

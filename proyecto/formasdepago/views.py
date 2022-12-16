@@ -7,7 +7,6 @@ from django.views.generic import ListView
 from formasdepago.forms import PagoFormasForm, AltaPagoFormaForm, BajaPagoFormaForm
 from .models import PagoForma
 
-
 def paginaenblanco(request):
     context = {"hoy": datetime.now}
     return render(request, 'PagoFormas/paginaenblanco.html', {"context": context})

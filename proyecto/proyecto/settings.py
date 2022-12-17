@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'login',
     'clientes',
     'django_extensions',
+    'rest_framework',
+    'proyecto_api',
     #'django_utils', #no me funciono para choices
-    #'django_choices' no hace falta ponerlo aca segun documentacion
+    #'django_choices' #no me funciono para choices. no hace falta ponerlo aca segun documentacion
 ]
 
 MIDDLEWARE = [
@@ -149,3 +151,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # REGISTRATION
 LOGIN_REDIRECT_URL = "paginaenblanco"
 LOGOUT_REDIRECT_URL = "logout"
+
+# MAIL #
+# basado en la explicacion de  https://www.youtube.com/watch?v=i87_lDrzjOU
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_USE_TLS=True
+EMAIL_PORT=587
+EMAIL_HOST_USER='pruebasdjango2022@gmail.com'
+EMAIL_HOST_PASSWORD='rbozmcvhwdvgkdjn'
+
+

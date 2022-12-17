@@ -1,6 +1,5 @@
 from django.db import models
-
-from formasdepago.models import PagoForma
+#from formasdepago.models import PagoForma
 
 
 class Cliente(models.Model):

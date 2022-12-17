@@ -1,36 +1,42 @@
-from datetime import datetime
 from django.shortcuts import render, redirect
-#from clientes.models import Cliente
-#from pagoformas.models import PagoForma
 from django.views import View
 from django.views.generic import ListView
 
-from ventas.forms import VentasForm, AltaVentaForm,BuscarVentaForm
+from ventas.forms import AltaVentaForm,BuscarVentaForm
 from ventas.forms import DepartamentosForm, AltaDepartamentoForm,BajaDepartamentoForm
 from ventas.models import Venta,Departamento
 
-from django.shortcuts import get_object_or_404 #### https://stackoverflow.com/questions/70856274/django-set-boolean-to-false-when-clicking-a-button
-#Departamento
-
 from django.core.mail import send_mail
-
-
+from datetime import timedelta
+from datetime import datetime
+from datetime import date
 
 def paginaenblanco(request):
     context = {"hoy": datetime.now}
     return render(request, 'ventas/paginaenblanco.html', {"context": context})
 
-# def estadisticas(request):
-#     context = {"hoy": datetime.now}
-#     return render(request, 'ventas/estadisticas.html', {"context": context})
+#def buscarventas(request): 
+#       filtro por los que no compran hace mas de tres meses
+#       esta mal encarado, porque usa un intervalo fijo y tiene que ser variable la fecha
+#   ventas = Venta.objects.all()
+#   ventas=ventas.filter(fecha_de_venta__range=["1900-09-01", "2022-10-31"])
+    # context={
+    #  'form': BuscarVentaForm(),
+    #  'ventas':ventas,
+    # }
+    # return render(request,'ventas/buscarventas.html',context)
 
-def buscarventas(request): #filtro por nombre
+def buscarventas(request): #filtro por los que no compran hace mas de tres meses
     ventas = Venta.objects.all()
-    ventas=ventas.filter(fecha_de_venta__range=["1900-09-01", "2022-10-31"])
+    #date.today es hoy, timedelta(days=90) es un intervalo de 90 dias
+    #hoy menos 90 dias da una fecha, esa fecha se debe convertir en string
+    #  lte es para filtre los menores o iguales a  
+    ventas = ventas.filter(fecha_de_venta__lte=str(date.today()-timedelta(days=90)))
+    ventas= ventas.order_by('-estado_pendiente')
     context={
-     'form': BuscarVentaForm(),
-     'ventas':ventas,
-    }
+      'form': BuscarVentaForm(),
+      'ventas':ventas,
+     }
     return render(request,'ventas/buscarventas.html',context)
 
 class ListaDeVentas(ListView):

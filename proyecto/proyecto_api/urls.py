@@ -6,6 +6,6 @@ router = DefaultRouter()
 router.register(r'clientes', views.ClienteViewSet, basename='cliente')
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('proyecto_api/', include(router.urls)),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
 ]

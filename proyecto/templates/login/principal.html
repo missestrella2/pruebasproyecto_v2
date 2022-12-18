@@ -1,0 +1,20 @@
+{% extends "plantillabase2.html" %}
+
+{% block content %}
+
+<div>
+    <div class="row">
+        <div class="col mt-5 col-6">
+                <h1>Bienvenido/a,</h1><h1 class="text-primary">{{ user.username }}</h1>
+                <p class="">Para revisar tus interacciones con los clientes apreta Historial de Ventas.<br>
+                Tambien podrás editar, borrar y dar de alta Clientes, Departamentos y Formas de Pago.
+
+                Para navegar usá la barra de navegación de arriba.</p>
+        </div>
+        <div class="col">
+                {% include 'ventas/estadisticas.html' %}
+
+        </div>
+    <div class="row">
+ </div>
+{% endblock %}

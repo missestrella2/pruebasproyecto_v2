@@ -20,4 +20,7 @@ urlpatterns=[
     path('ventas/departamentoeditar/<int:id_departamento>', login_required(views.departamentoeditar), name='departamentoeditar'),
     path('ventas/departamentoeliminar/<int:id_departamento>', login_required(views.departamentoeliminar), name='departamentoeliminar'),
 
+    path('ventas/estadisticas/', login_required(views.estadisticas.as_view()), name='estadisticas'),
+
+
 ]

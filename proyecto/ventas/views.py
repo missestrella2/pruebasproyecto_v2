@@ -45,6 +45,12 @@ class ListaDeVentas(ListView):
     template_name = 'ventas/listadeventas.html'
     ordering =['id']
 
+class estadisticas(ListView):
+    model = Venta 
+    context_object_name = 'estadisticas'
+    template_name = 'ventas/estadisticas.html'
+    ordering =['id']
+
 class altaventaform(View): #FORMULARIO DE ALTA
     form_class = AltaVentaForm
     template_name = 'ventas/altaventaform.html'
@@ -61,7 +67,7 @@ class altaventaform(View): #FORMULARIO DE ALTA
 
         return render(request, self.template_name, {'formulario': form})
 
-def estadocambiar(request, id): #BOTON CAMBIAR DE ESTADO
+def estadocambiar(request, id): #BOTON CAMBIAR DE ESTADO y mandar mail
      try:
          venta2 = Venta.objects.get(id=id)
      except Venta.DoesNotExist:
@@ -78,6 +84,7 @@ def estadocambiar(request, id): #BOTON CAMBIAR DE ESTADO
                 fail_silently=False) 
      
      return redirect('buscarventas')
+
 
 
 ######################DEPARTAMENTOS####################################

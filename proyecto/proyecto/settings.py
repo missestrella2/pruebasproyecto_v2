@@ -149,7 +149,7 @@ STATIC_ROOT = BASE_DIR / "static_root/" #SEGUN CLASE 14
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # REGISTRATION
-LOGIN_REDIRECT_URL = "paginaenblanco"
+LOGIN_REDIRECT_URL = "principal"
 LOGOUT_REDIRECT_URL = "logout"
 
 # MAIL #

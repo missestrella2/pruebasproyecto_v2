@@ -3,6 +3,7 @@ from django.forms import ValidationError
 from .models import Venta, Departamento
 #from .models import Cargo
 
+############  FORMULARIOS DE VENTAS ########################
 
 class VentasForm(forms.ModelForm):
     class Meta:
@@ -39,7 +40,7 @@ class BuscarVentaForm(forms.ModelForm):
         model = Venta
         fields = ('fecha_de_venta',)
 
-#################################################
+############  FORMULARIOS DE DEPARTAMENTOS ########################
 
 class DepartamentosForm(forms.ModelForm):
     class Meta:

@@ -16,8 +16,9 @@ def paginaenblanco(request):
     return render(request, 'ventas/paginaenblanco.html', {"context": context})
 
 #def buscarventas(request): 
-#       filtro por los que no compran hace mas de tres meses
-#       esta mal encarado, porque usa un intervalo fijo y tiene que ser variable la fecha
+########## esta mal encarado, porque usa un intervalo fijo
+########## y tiene que ser variable la fecha
+#
 #   ventas = Venta.objects.all()
 #   ventas=ventas.filter(fecha_de_venta__range=["1900-09-01", "2022-10-31"])
     # context={

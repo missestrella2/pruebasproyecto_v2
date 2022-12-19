@@ -4,3 +4,5 @@ PROYECTO CRM
 Colaboradores: 
 Jorgelina Fernandez (jorgelinafernandez)
 Cynthia Villagra (missestrella2)
+
+EN REVISION: FALTAS AGREGARLE TRY AND CATCH PARA VALIDAR CUANDO SE DAN ALTAS

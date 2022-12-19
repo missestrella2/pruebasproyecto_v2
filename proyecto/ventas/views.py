@@ -68,22 +68,23 @@ class altaventaform(View): #FORMULARIO DE ALTA
         return render(request, self.template_name, {'formulario': form})
 
 def estadocambiar(request, id): #BOTON CAMBIAR DE ESTADO y mandar mail
-     try:
+    try:
          venta2 = Venta.objects.get(id=id)
-     except Venta.DoesNotExist:
+    except Venta.DoesNotExist:
          return render(request, 'ventas/404.html')
-     venta2.estado_pendiente=False
-     venta2.estado_terminado=True
-     venta2.save()
-        
-     send_mail(
-                'TE EXTRAÑAMOS '+venta2.clientes.nombre,
-                'Hola '+venta2.clientes.nombre+', como estas? Hace mucho que no nos vemos. Por eso te ofrecemos esta promo exclusiva para vos: Presentando este mail tenes 20% OFF en todos nuestros productos. Te esperamos!',
-                'pruebasdjango2022gmail.com',
-                [venta2.clientes.email],
-                fail_silently=False) 
-     
-     return redirect('buscarventas')
+
+    if (venta2.estado_pendiente==True):
+        send_mail(
+                    'TE EXTRAÑAMOS '+venta2.clientes.nombre,
+                    'Hola '+venta2.clientes.nombre+', como estas? Hace mucho que no nos vemos. Por eso te ofrecemos esta promo exclusiva para vos: Presentando este mail tenes 20% OFF en todos nuestros productos. Te esperamos!',
+                    'pruebasdjango2022gmail.com',
+                    [venta2.clientes.email],
+                    fail_silently=False) 
+        venta2.estado_pendiente=False
+        venta2.estado_terminado=True
+        venta2.save()
+  
+    return redirect('buscarventas')
 
 
 
